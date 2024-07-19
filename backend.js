@@ -297,6 +297,25 @@ function sum_array() {
    return alert("RESULTADO DE LA OPERACION:     " + resultado);
    
    }
+
+//CAP PRIMER PALABRA
+function cap_primer() {
+    const frase = document.getElementById('id_frase').value;
+    if (frase.trim() === ""){
+        alert("QUE HACES CHE; INGRESA UN TEXTO");
+        return;
+    }
+    const resultado = capitalizar_primera_letra(frase);
+    alert("EL RESULTADO DE LA CADENA ES: " + resultado);
+}
+
+function capitalizar_primera_letra(str) {
+    if (str.length === 0) {
+        return ''; // Si el string está vacío, retornamos un string vacío
+    }
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 //CAP PALABRAS 
 
 function capitalizarPrimeraLetra(frase) {
