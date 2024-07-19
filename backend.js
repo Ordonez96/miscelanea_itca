@@ -298,3 +298,29 @@ function sum_array() {
    
    }
 
+   //EJERCICIO BUSCA MAXIMO
+   function busq_max(){
+    const numeros = document.getElementById("id_num").value;
+        //alert("entrra")
+        var num_array = numeros.split(",").map(num => parseInt(num.trim(), 10));
+        //alert("entra brou")
+        var result = max(num_array);
+        //alert("entrra")
+        //document.getElementById('maxResult').innerText = `Maximum number is: ${result}`;
+        alert("El numero maximo es: " + result);
+   }
+   function max(arr) {
+        if (arr.length === 0) {
+            return undefined;
+        }
+
+        let num_max = arr[0];
+
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] > num_max) {
+                num_max = arr[i];
+            }
+        }
+
+        return num_max;
+    }
