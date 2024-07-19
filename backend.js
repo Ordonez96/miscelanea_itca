@@ -297,21 +297,49 @@ function sum_array() {
    return alert("RESULTADO DE LA OPERACION:     " + resultado);
    
    }
+//CAP PALABRAS 
+
+function capitalizarPrimeraLetra(frase) {
+    frase = frase.split(' ');
+
+    for (let i = 0; i < frase.length; ++i) {
+        frase[i] = frase[i][0].toUpperCase() + frase[i].substring(1);
+    }
+
+    return frase.join(' ');
+}
+
+function cap_palabra() {
+    let inputFrase = document.getElementById("id_frase").value;
+    if(inputFrase.trim() === ""){
+        alert("Che, hay que escribir algo");
+        return;
+    }
+    let resultado = capitalizarPrimeraLetra(inputFrase);
+    alert ("CHE, La frase arreglada queda asi: " + resultado);
+}
+
+
+
+
 
    //EJERCICIO BUSCA MAXIMO
    function busq_max(){
     const numeros = document.getElementById("id_num").value;
+    if (numeros.trim() === ""){
+        alert("CHE, TENES QUE INGRESAR MINIMO UN NUMERO");
+        return;
+    }
         //alert("entrra")
         var num_array = numeros.split(",").map(num => parseInt(num.trim(), 10));
         //alert("entra brou")
         var result = max(num_array);
         //alert("entrra")
-        //document.getElementById('maxResult').innerText = `Maximum number is: ${result}`;
         alert("El numero maximo es: " + result);
    }
    function max(arr) {
         if (arr.length === 0) {
-            return undefined;
+            return alert("Indefinido che");
         }
 
         let num_max = arr[0];
@@ -324,3 +352,61 @@ function sum_array() {
 
         return num_max;
     }
+
+    //BUSQUEDA DE VALOR MINIMO 
+    function busq_min() {
+        var num_b = document.getElementById('id_num').value;
+        if (num_b.trim() === ""){
+            alert("CHE, TENES QUE INGRESAR MINIMO UN NUMERO");
+            return;
+        }
+        var num_array = num_b.split(',').map(num => parseFloat(num.trim()));
+        var result = min(num_array);
+        alert("EL NUMERO MINIMO ENCONTRADO ES: " + result);
+        alert("CHE, YA VAS APRENDIENDO");
+
+    }
+    function min(arr) {
+        if (arr.length === 0) {
+            return undefined;
+        }
+
+        let num_min = arr[0];
+
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] < num_min) {
+                num_min = arr[i];
+            }
+        }
+
+        return num_min;
+    }
+
+    //CONTRASEÑAS 
+    function password(str) {
+        // Convierte todas las mayúsculas a minúsculas
+        let resultado = str.toLowerCase();
+          
+        // Elimina todos los espacios en blanco
+        resultado = resultado.replace(/\s/g, '');
+        
+        // Reemplaza los caracteres según las reglas dadas
+        resultado = resultado.replace(/a/g, '4')
+                       .replace(/e/g, '3')
+                       .replace(/i/g, '1')
+                       .replace(/o/g, '0');
+        
+        return resultado;
+      }
+      
+      function ejecutar_password() {
+        var string_ingresada = document.getElementById('id_cadena_ingresada').value;
+          if (string_ingresada.trim() === " "){
+            alert("CHE, ESTO ESTA VACIO");
+            return;
+          }
+          var resultadofinal = password(string_ingresada);
+          return alert(resultadofinal);
+          
+          }
+      
